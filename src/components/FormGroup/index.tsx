@@ -35,8 +35,8 @@ export const FormGroup = () => {
     setData([
       ...data,
       {
-        buyPrice: values.buyPrice,
-        sellPrice: values.sellPrice,
+        buyPrice: Number(values.buyPrice),
+        sellPrice: Number(values.sellPrice),
         benefit: values.sellPrice - values.buyPrice - values.sellPrice * 0.02,
         item: values.item,
         date: values.date,
@@ -63,12 +63,13 @@ export const FormGroup = () => {
         label="Nom de l'objet"
         name="item"
       />
-      <StyledInput
+      <NumericFormat
         value={values.buyPrice}
         onChange={handleChange}
-        type="number"
         label="Prix d'achat"
         name="buyPrice"
+        thousandSeparator=","
+        customInput={StyledInput}
       />
       <StyledInput
         value={values.sellPrice}
