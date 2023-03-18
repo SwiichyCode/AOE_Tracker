@@ -77,7 +77,7 @@ export const FormGroup = () => {
         name="sellPrice"
       />
 
-      <StyledButton text="Confirmer" color="success" onClick={handleSubmit} />
+      <StyledButton text="Ajouter" color="success" onClick={handleSubmit} />
     </InputWrapper>
   );
 };
