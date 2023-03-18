@@ -4,6 +4,7 @@ import { useStore } from "../../stores/store";
 import { StyledInput } from "../Input";
 import { StyledButton } from "../Button";
 import styled from "styled-components";
+import { NumericFormat } from "react-number-format";
 
 const InputWrapper = styled.div`
   display: flex;
@@ -62,19 +63,22 @@ export const FormGroup = () => {
         label="Nom de l'objet"
         name="item"
       />
-      <StyledInput
+      <NumericFormat
         value={values.buyPrice}
         onChange={handleChange}
-        type="number"
         label="Prix d'achat"
         name="buyPrice"
+        thousandSeparator=","
+        customInput={StyledInput}
       />
-      <StyledInput
+
+      <NumericFormat
         value={values.sellPrice}
         onChange={handleChange}
-        type="number"
         label="Prix de vente"
         name="sellPrice"
+        thousandSeparator=","
+        customInput={StyledInput}
       />
 
       <StyledButton text="Ajouter" color="success" onClick={handleSubmit} />
