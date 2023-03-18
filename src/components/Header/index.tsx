@@ -17,7 +17,7 @@ export const Header = () => {
             marginLeft: "1rem",
           }}
         >
-          AOE Tracker
+          DofusTrader
         </Typography>
         {/* <Button color="inherit">Login</Button>
         <Button color="inherit">Register</Button> */}
