@@ -1,12 +1,11 @@
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import { AppBar, Toolbar, Box, Typography, Button } from "@mui/material";
 
+import kamasLogo from "../../assets/kamas.png";
 export const Header = () => {
   return (
     <AppBar position="fixed" sx={{ bgcolor: "#0b1727" }}>
       <Toolbar>
+        <img src={kamasLogo} width={40} height={40} alt="logo" />
         <Typography
           variant="h6"
           component="div"
@@ -15,6 +14,7 @@ export const Header = () => {
             color: "#2c7be5",
             fontWeight: "bold",
             fontSize: "1.5rem",
+            marginLeft: "1rem",
           }}
         >
           AOE Tracker
