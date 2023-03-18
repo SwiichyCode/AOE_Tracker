@@ -10,7 +10,7 @@ export const App = () => {
     <AppLayout>
       <Header />
       <MainLayout>
-        <Typography sx={{ textAlign: "center", maxWidth: "500px" }}>
+        <Typography sx={{ textAlign: "center", maxWidth: "750px" }}>
           Nous travaillons activement pour améliorer et mettre à jour
           régulièrement l'application afin de vous offrir la meilleure
           expérience possible. Veuillez noter que les données sont actuellement

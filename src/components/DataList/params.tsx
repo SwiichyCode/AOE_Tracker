@@ -3,20 +3,6 @@ import { useStore } from "../../stores/store";
 import { StyledButton } from "../Button";
 import { formatNum } from "../../utils/formatNum";
 
-const renderDeleteCell = (params: GridRenderCellParams) => {
-  const deleteItem = useStore((state: any) => state.deleteItem);
-
-  return (
-    <StyledButton
-      text="Delete"
-      color="error"
-      onClick={() => {
-        deleteItem(params.id);
-      }}
-    />
-  );
-};
-
 const renderBuyPriceCell = (params: GridRenderCellParams) => {
   const buyPrice = params.row.buyPrice;
   return formatNum(buyPrice);
@@ -58,6 +44,29 @@ const renderTaxeCell = (params: GridRenderCellParams) => {
   return formatNum(tax);
 };
 
+const renderDeleteCell = (params: GridRenderCellParams) => {
+  const deleteItem = useStore((state: any) => state.deleteItem);
+
+  return (
+    <StyledButton
+      text="Delete"
+      color="error"
+      onClick={() => {
+        deleteItem(params.id);
+      }}
+    />
+  );
+};
+
+const renderDateCell = (params: GridRenderCellParams) => {
+  const date = new Date(params.row.date);
+  return date.toLocaleDateString("fr-FR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
 export const columns: GridColDef[] = [
   {
     field: "item",
@@ -93,6 +102,7 @@ export const columns: GridColDef[] = [
     width: 150,
     editable: false,
     renderCell: renderBenefitPercentageCell,
+    sortable: false,
   },
   {
     field: "taxe",
@@ -100,6 +110,17 @@ export const columns: GridColDef[] = [
     width: 150,
     editable: false,
     renderCell: renderTaxeCell,
+    sortable: false,
+  },
+  {
+    field: "date",
+    headerName: "Date",
+    width: 150,
+    editable: false,
+    renderCell: renderDateCell,
+    type: "date",
+    valueGetter: (params) => new Date(params.row.date),
+    // sortable: false,
   },
   {
     field: "delete",
