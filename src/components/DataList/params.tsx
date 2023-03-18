@@ -40,6 +40,12 @@ const renderTaxeCell = (params: GridRenderCellParams) => {
 
 export const columns: GridColDef[] = [
   {
+    field: "item",
+    headerName: "Item name",
+    width: 150,
+    editable: false,
+  },
+  {
     field: "buyPrice",
     headerName: "Prix d'achat",
     width: 150,
@@ -53,12 +59,7 @@ export const columns: GridColDef[] = [
     editable: false,
     renderCell: renderSellPriceCell,
   },
-  {
-    field: "item",
-    headerName: "Item name",
-    width: 150,
-    editable: false,
-  },
+
   {
     field: "benefit",
     headerName: "Bénéfice",
@@ -78,6 +79,7 @@ export const columns: GridColDef[] = [
     headerName: "Delete",
     width: 150,
     editable: false,
+    sortable: false,
     renderCell: renderDeleteCell,
   },
 ];
