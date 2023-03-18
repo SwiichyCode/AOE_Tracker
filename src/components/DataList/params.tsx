@@ -28,7 +28,7 @@ const renderSellPriceCell = (params: GridRenderCellParams) => {
 };
 
 const getBenefitColor = (benefit: number) => {
-  return benefit > 0 ? "#69ff5e" : "#fe0000";
+  return benefit > 0 ? "#54cc4b" : "#fe0000";
 };
 
 const renderBenefitCell = (params: GridRenderCellParams) => {
@@ -37,11 +37,7 @@ const renderBenefitCell = (params: GridRenderCellParams) => {
   const formattedBenefit = formatNum(benefit);
   const benefitColor = getBenefitColor(benefit);
 
-  return (
-    <span style={{ color: benefitColor, fontWeight: "bold" }}>
-      {formattedBenefit}
-    </span>
-  );
+  return <span style={{ color: benefitColor }}>{formattedBenefit}</span>;
 };
 
 const renderBenefitPercentageCell = (params: GridRenderCellParams) => {

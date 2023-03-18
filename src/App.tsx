@@ -17,7 +17,7 @@ export const App = () => {
           stockées dans votre navigateur.
           <Typography sx={{ color: "red" }}>
             Afin de ne pas perdre vos données, veillez à ne pas réinitialiser
-            votre navigateur ni supprimer le localStorage.
+            votre navigateur ni supprimer le localStorage. (Temporaire)
           </Typography>
           Merci de votre compréhension et n'hésitez pas à nous faire part de vos
           suggestions et commentaires.

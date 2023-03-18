@@ -9,7 +9,7 @@ interface StyledButtonProps {
 const buttonTheme = createTheme({
   palette: {
     success: {
-      main: "#69ff5e",
+      main: "#54cc4b",
     },
   },
 });

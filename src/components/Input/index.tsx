@@ -29,12 +29,12 @@ export const StyledInput = ({
       sx={{ borderColor: "white" }}
       InputLabelProps={{
         sx: {
-          color: "white",
+          color: "black",
         },
       }}
       inputProps={{
         sx: {
-          color: "white",
+          color: "black",
           paddingLeft: "15px",
           fontSize: "20px",
         },

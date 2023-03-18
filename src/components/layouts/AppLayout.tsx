@@ -12,7 +12,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #295999;
+  background: #f7f8fd;
 `;
 
 export const AppLayout = ({ children }: AppLayoutProps) => {

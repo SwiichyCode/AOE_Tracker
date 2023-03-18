@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { NumericFormat } from "react-number-format";
 import { useStore } from "../../stores/store";
 import { StyledInput } from "../Input";
 import { StyledButton } from "../Button";
 import styled from "styled-components";
-import { NumericFormat } from "react-number-format";
 
 const InputWrapper = styled.div`
   display: flex;
