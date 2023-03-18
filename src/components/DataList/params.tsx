@@ -44,6 +44,19 @@ const renderBenefitCell = (params: GridRenderCellParams) => {
   );
 };
 
+const renderBenefitPercentageCell = (params: GridRenderCellParams) => {
+  const tax = params.row.sellPrice * 0.02;
+  const benefit = params.row.sellPrice - params.row.buyPrice - tax;
+  const benefitPercentage = (benefit / params.row.buyPrice) * 100;
+  const benefitColor = getBenefitColor(benefit);
+
+  return (
+    <span style={{ color: benefitColor }}>
+      {benefitPercentage.toFixed(2)} %
+    </span>
+  );
+};
+
 const renderTaxeCell = (params: GridRenderCellParams) => {
   const tax = params.row.sellPrice * 0.02; // Calcule la taxe de 2% du prix de vente
   return formatNum(tax);
@@ -77,6 +90,13 @@ export const columns: GridColDef[] = [
     width: 150,
     editable: false,
     renderCell: renderBenefitCell,
+  },
+  {
+    field: "benefitPercentage",
+    headerName: "Bénéfice (%)",
+    width: 150,
+    editable: false,
+    renderCell: renderBenefitPercentageCell,
   },
   {
     field: "taxe",
