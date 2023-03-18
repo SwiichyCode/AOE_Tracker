@@ -19,8 +19,8 @@ export const Header = () => {
         >
           AOE Tracker
         </Typography>
-        <Button color="inherit">Login</Button>
-        <Button color="inherit">Register</Button>
+        {/* <Button color="inherit">Login</Button>
+        <Button color="inherit">Register</Button> */}
       </Toolbar>
     </AppBar>
   );
