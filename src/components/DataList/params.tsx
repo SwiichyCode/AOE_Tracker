@@ -28,14 +28,13 @@ const renderSellPriceCell = (params: GridRenderCellParams) => {
 };
 
 const renderBenefitCell = (params: GridRenderCellParams) => {
-  const benefit = params.row.sellPrice - params.row.buyPrice;
-  const tax = benefit * 0.02; // Calcule la taxe de 2%
-  return formatNum(benefit - tax);
+  const tax = params.row.sellPrice * 0.02; // Calcule la taxe de 2% du prix de vente
+  const benefit = params.row.sellPrice - params.row.buyPrice - tax;
+  return formatNum(benefit);
 };
 
 const renderTaxeCell = (params: GridRenderCellParams) => {
-  const benefit = params.row.sellPrice - params.row.buyPrice;
-  const tax = benefit * 0.02; // Calcule la taxe de 2%
+  const tax = params.row.sellPrice * 0.02; // Calcule la taxe de 2% du prix de vente
   return formatNum(tax);
 };
 
