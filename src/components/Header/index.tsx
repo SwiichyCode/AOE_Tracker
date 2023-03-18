@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Box, Typography, Button } from "@mui/material";
+import { AppBar, Toolbar, Typography } from "@mui/material";
 
 import kamasLogo from "../../assets/kamas.png";
 export const Header = () => {
