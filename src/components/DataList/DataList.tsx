@@ -31,7 +31,7 @@ export const DataList = () => {
         pageSizeOptions={[5]}
         checkboxSelection
         disableRowSelectionOnClick
-        sx={{ border: "1px solid #000", maxWidth: 950, margin: "auto" }}
+        sx={{ border: "1px solid #000", maxWidth: 1250, margin: "auto" }}
       />
     </Box>
   );

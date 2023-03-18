@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
+import { v4 as uuidv4 } from "uuid";
 
 interface DataSate {
   data: any[];
@@ -7,10 +8,21 @@ interface DataSate {
   deleteItem: (id: string) => void;
 }
 
+const defaultData = [
+  {
+    id: uuidv4(),
+    sellPrice: 2000,
+    buyPrice: 1000,
+    benefit: 1000,
+    item: "Exemple d'objet",
+    date: new Date(),
+  },
+];
+
 export const useStore = create<DataSate>()(
   persist(
     (set, get) => ({
-      data: [],
+      data: defaultData,
 
       setData: (data: any) => set({ data }),
 
