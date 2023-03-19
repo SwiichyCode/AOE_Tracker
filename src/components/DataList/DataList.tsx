@@ -1,10 +1,17 @@
+import React from "react";
 import { useStore } from "../../stores/store";
 import { Box } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridSortModel } from "@mui/x-data-grid";
 import { columns } from "./params";
 
 export const DataList = () => {
   const data = useStore((state: any) => state.data);
+  const [sortModel, setSortModel] = React.useState<GridSortModel>([
+    {
+      field: "date",
+      sort: "desc",
+    },
+  ]);
 
   const totalBenefit = data.reduce(
     (acc: any, item: any) => acc + item.benefit,
@@ -28,6 +35,8 @@ export const DataList = () => {
             },
           },
         }}
+        sortModel={sortModel}
+        onSortModelChange={(model) => setSortModel(model)}
         pageSizeOptions={[5]}
         checkboxSelection
         disableRowSelectionOnClick
