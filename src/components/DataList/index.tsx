@@ -5,16 +5,19 @@ import { DataGrid, GridSortModel } from "@mui/x-data-grid";
 import { Box } from "@mui/material";
 import { DataListFooter } from "../DataListFooter";
 import { DataListToolbar } from "../DataListToolbar";
+import { useEditSellPrice } from "../../hooks/useEditSellPrice";
 
 export const DataList = () => {
   const data = useStore((state: any) => state.data);
-  const editSellPrice = useStore((state: any) => state.editSellPrice);
+  const editSellPrice = useEditSellPrice();
   const [sortModel, setSortModel] = React.useState<GridSortModel>([
     {
       field: "date",
       sort: "desc",
     },
   ]);
+
+  console.log("data", data);
 
   return (
     <Box
@@ -35,6 +38,10 @@ export const DataList = () => {
         components={{
           Footer: DataListFooter,
           Toolbar: DataListToolbar,
+        }}
+        onCellEditStop={(params) => {
+          const { value } = params;
+          editSellPrice(params.id, value);
         }}
       />
     </Box>

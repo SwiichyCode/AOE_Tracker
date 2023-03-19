@@ -44,6 +44,7 @@ export const useStore = create<DataSate>()(
       },
 
       editSellPrice: (id: string, sellPrice: number) => {
+        console.log("test", id, sellPrice);
         const newData = get().data.map((item: any) => {
           if (item.id === id) {
             return { ...item, sellPrice };
