@@ -63,14 +63,30 @@ export const FormGroup = () => {
         label="Nom de l'objet"
         name="item"
       />
-      <NumericFormat
+      {/* <NumericFormat
         value={values.buyPrice}
         onChange={handleChange}
         label="Prix d'achat"
         name="buyPrice"
         thousandSeparator=","
         customInput={StyledInput}
+      /> */}
+      <StyledInput
+        value={values.buyPrice}
+        onChange={handleChange}
+        type="number"
+        label="Prix d'achat"
+        name="buyPrice"
       />
+      {/* <NumericFormat
+        value={values.sellPrice}
+        onChange={handleChange}
+        label="Prix de vente"
+        name="sellPrice"
+        thousandSeparator=","
+        customInput={StyledInput}
+      /> */}
+
       <StyledInput
         value={values.sellPrice}
         onChange={handleChange}

@@ -88,7 +88,6 @@ export const columns: GridColDef[] = [
     editable: false,
     renderCell: renderSellPriceCell,
   },
-
   {
     field: "benefit",
     headerName: "Bénéfice",
@@ -120,7 +119,6 @@ export const columns: GridColDef[] = [
     renderCell: renderDateCell,
     type: "date",
     valueGetter: (params) => new Date(params.row.date),
-    // sortable: false,
   },
   {
     field: "delete",
