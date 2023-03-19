@@ -6,7 +6,7 @@ import "./styles/index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Analytics mode={"production"} />;
+    <Analytics mode={"production"} />
     <App />
   </React.StrictMode>
 );

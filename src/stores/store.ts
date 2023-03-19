@@ -7,7 +7,6 @@ interface DataSate {
   setData: (data: any) => void;
   deleteItem: (id: string) => void;
   toggleSold: (id: string) => void;
-  // initSoldStatus: () => void;
 }
 
 const defaultData = [
@@ -43,13 +42,6 @@ export const useStore = create<DataSate>()(
         });
         set({ data: newData });
       },
-
-      // initSoldStatus: () => {
-      //   const newData = get().data.map((item: any) => {
-      //     return { ...item, sold: false };
-      //   });
-      //   set({ data: newData });
-      // },
 
       editSellPrice: (id: string, sellPrice: number) => {
         const newData = get().data.map((item: any) => {
