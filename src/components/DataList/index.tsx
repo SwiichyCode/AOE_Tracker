@@ -1,7 +1,12 @@
 import React from "react";
 import { useStore } from "../../stores/store";
-import { DataGrid, GridSortModel } from "@mui/x-data-grid";
-import { Box } from "@mui/material";
+import {
+  DataGrid,
+  GridSortModel,
+  GridToolbarContainer,
+  GridToolbarExport,
+} from "@mui/x-data-grid";
+import { Box, Typography } from "@mui/material";
 import { DataListFooter } from "../DataListFooter";
 import { columns } from "./params";
 
@@ -15,6 +20,17 @@ export const DataList = () => {
     },
   ]);
 
+  const CustomToolbar = () => {
+    return (
+      <GridToolbarContainer
+        sx={{ padding: "16px", borderBottom: "1px solid black" }}
+      >
+        <GridToolbarExport />
+        <Typography>Récupère tes données au format CSV</Typography>
+      </GridToolbarContainer>
+    );
+  };
+
   return (
     <Box
       sx={{
@@ -25,6 +41,13 @@ export const DataList = () => {
       <DataGrid
         rows={data}
         columns={columns}
+        componentsProps={{ footer: {} }}
+        sortModel={sortModel}
+        onSortModelChange={(model) => setSortModel(model)}
+        pageSizeOptions={[5]}
+        checkboxSelection
+        disableRowSelectionOnClick
+        sx={{ border: "1px solid #000", maxWidth: 1250, margin: "auto" }}
         initialState={{
           pagination: {
             paginationModel: {
@@ -34,14 +57,8 @@ export const DataList = () => {
         }}
         components={{
           Footer: DataListFooter,
+          Toolbar: CustomToolbar,
         }}
-        componentsProps={{ footer: {} }}
-        sortModel={sortModel}
-        onSortModelChange={(model) => setSortModel(model)}
-        pageSizeOptions={[5]}
-        checkboxSelection
-        disableRowSelectionOnClick
-        sx={{ border: "1px solid #000", maxWidth: 1250, margin: "auto" }}
       />
     </Box>
   );
