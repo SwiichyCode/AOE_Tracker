@@ -30,6 +30,16 @@ export const useStore = create<DataSate>()(
         const newData = get().data.filter((item: any) => item.id !== id);
         set({ data: newData });
       },
+
+      editSellPrice: (id: string, sellPrice: number) => {
+        const newData = get().data.map((item: any) => {
+          if (item.id === id) {
+            return { ...item, sellPrice };
+          }
+          return item;
+        });
+        set({ data: newData });
+      },
     }),
     {
       name: "my-storage",

@@ -2,6 +2,7 @@ import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { useStore } from "../../stores/store";
 import { StyledButton } from "../Button";
 import { formatNum } from "../../utils/formatNum";
+import { getBenefitColor } from "../../utils/getBenefitColor";
 
 const renderBuyPriceCell = (params: GridRenderCellParams) => {
   const buyPrice = params.row.buyPrice;
@@ -11,10 +12,6 @@ const renderBuyPriceCell = (params: GridRenderCellParams) => {
 const renderSellPriceCell = (params: GridRenderCellParams) => {
   const sellPrice = params.row.sellPrice;
   return formatNum(sellPrice);
-};
-
-const getBenefitColor = (benefit: number) => {
-  return benefit > 0 ? "#54cc4b" : "#fe0000";
 };
 
 const renderBenefitCell = (params: GridRenderCellParams) => {
@@ -85,7 +82,7 @@ export const columns: GridColDef[] = [
     field: "sellPrice",
     headerName: "Prix de revente",
     width: 150,
-    editable: false,
+    editable: true,
     renderCell: renderSellPriceCell,
   },
   {

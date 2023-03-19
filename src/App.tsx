@@ -2,29 +2,24 @@ import { AppLayout } from "./components/layouts/AppLayout";
 import { MainLayout } from "./components/layouts/MainLayout";
 import { Header } from "./components/Header";
 import { FormGroup } from "./components/FormGroup";
-import { DataList } from "./components/DataList/DataList";
-import { Typography } from "@mui/material";
+import { DataList } from "./components/DataList";
+import { Box, Typography } from "@mui/material";
 
 export const App = () => {
   return (
     <AppLayout>
       <Header />
       <MainLayout>
-        <Typography sx={{ textAlign: "center", maxWidth: "750px" }}>
-          Nous travaillons activement pour améliorer et mettre à jour
-          régulièrement l'application afin de vous offrir la meilleure
-          expérience possible. Veuillez noter que les données sont actuellement
-          stockées dans votre navigateur.
+        <Box sx={{ textAlign: "center", maxWidth: "750px" }}>
           <Typography sx={{ color: "red" }}>
             Afin de ne pas perdre vos données, veillez à ne pas réinitialiser
             votre navigateur ni supprimer le localStorage. (Temporaire)
-            <a href="https://discord.gg/NfXm7vavCK">
-              https://discord.gg/NfXm7vavCK
-            </a>
           </Typography>
-          Merci de votre compréhension et n'hésitez pas à nous faire part de vos
-          suggestions et commentaires.
-        </Typography>
+          <Typography>Prochaine update: Edition du prix de vente.</Typography>
+          <Typography component={"a"} href={"https://discord.gg/XJDevHDE"}>
+            Rejoignez le discord pour proposer des idées d'amélioration.
+          </Typography>
+        </Box>
         <FormGroup />
         <DataList />
       </MainLayout>
