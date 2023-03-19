@@ -34,7 +34,7 @@ export const DataList = () => {
   return (
     <Box
       sx={{
-        height: 400,
+        height: 600,
         width: "100%",
       }}
     >
@@ -44,17 +44,17 @@ export const DataList = () => {
         componentsProps={{ footer: {} }}
         sortModel={sortModel}
         onSortModelChange={(model) => setSortModel(model)}
-        pageSizeOptions={[5]}
+        // pageSizeOptions={[5]}
         checkboxSelection
         disableRowSelectionOnClick
         sx={{ border: "1px solid #000", maxWidth: 1250, margin: "auto" }}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 5,
-            },
-          },
-        }}
+        // initialState={{
+        //   pagination: {
+        //     paginationModel: {
+        //       pageSize: 5,
+        //     },
+        //   },
+        // }}
         components={{
           Footer: DataListFooter,
           Toolbar: CustomToolbar,

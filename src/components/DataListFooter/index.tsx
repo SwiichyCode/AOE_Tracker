@@ -1,5 +1,5 @@
 import { useStore } from "../../stores/store";
-import { GridFooterContainer, GridPagination } from "@mui/x-data-grid";
+import { GridFooterContainer } from "@mui/x-data-grid";
 import { formatNum } from "../../utils/formatNum";
 
 export const DataListFooter = () => {
@@ -22,7 +22,6 @@ export const DataListFooter = () => {
         }}
       >
         <div>Total des bénéfices : {formatNum(totalBenefit)}</div>
-        <GridPagination />
       </div>
     </GridFooterContainer>
   );

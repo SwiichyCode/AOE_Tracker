@@ -10,18 +10,28 @@ export const App = () => {
     <AppLayout>
       <Header />
       <MainLayout>
-        <Box sx={{ textAlign: "center", maxWidth: "750px" }}>
-          <Typography sx={{ color: "red" }}>
-            Afin de ne pas perdre vos données, veillez à ne pas réinitialiser
-            votre navigateur ni supprimer le localStorage. (Temporaire)
-          </Typography>
-          <Typography>Prochaine update: Edition du prix de vente.</Typography>
-          <Typography component={"a"} href={"https://discord.gg/XJDevHDE"}>
-            Rejoignez le discord pour proposer des idées d'amélioration.
-          </Typography>
-        </Box>
         <FormGroup />
-        <DataList />
+
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "1.6rem",
+          }}
+        >
+          <Box sx={{ textAlign: "center", maxWidth: "750px" }}>
+            <Typography sx={{ color: "red" }}>
+              Afin de ne pas perdre vos données, veillez à ne pas réinitialiser
+              votre navigateur ni supprimer le localStorage. (Temporaire)
+            </Typography>
+            <Typography>Prochaine update: Edition du prix de vente.</Typography>
+            <Typography component={"a"} href={"https://discord.gg/XJDevHDE"}>
+              Rejoignez le discord pour proposer des idées d'amélioration.
+            </Typography>
+          </Box>
+          <DataList />
+        </Box>
       </MainLayout>
     </AppLayout>
   );
