@@ -9,11 +9,11 @@ import { useStore } from "./stores/store";
 
 export const App = () => {
   // const data = useStore((state) => state.data);
-  const initSoldStatus = useStore((state) => state.initSoldStatus);
+  // const initSoldStatus = useStore((state) => state.initSoldStatus);
 
-  useEffect(() => {
-    initSoldStatus();
-  }, []);
+  // useEffect(() => {
+  //   initSoldStatus();
+  // }, []);
 
   return (
     <AppLayout>
