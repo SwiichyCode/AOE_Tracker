@@ -24,10 +24,21 @@ export const FormGroup = () => {
     id: uuidv4(),
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const [numericValues, setNumericValues] = useState({
+    buyPrice: 0,
+    sellPrice: 0,
+  });
+
+  const handleChange = (name: string, value: string) => {
+    const numericValue = parseFloat(value.replace(/,/g, ""));
+
     setValues({
       ...values,
-      [event.target.name]: event.target.value,
+      [name]: value,
+    });
+    setNumericValues({
+      ...numericValues,
+      [name]: numericValue,
     });
   };
 
@@ -35,9 +46,12 @@ export const FormGroup = () => {
     setData([
       ...data,
       {
-        buyPrice: Number(values.buyPrice),
-        sellPrice: Number(values.sellPrice),
-        benefit: values.sellPrice - values.buyPrice - values.sellPrice * 0.02,
+        buyPrice: numericValues.buyPrice,
+        sellPrice: numericValues.sellPrice,
+        benefit:
+          numericValues.sellPrice -
+          numericValues.buyPrice -
+          numericValues.sellPrice * 0.02,
         item: values.item,
         date: values.date,
         id: values.id,
@@ -52,49 +66,42 @@ export const FormGroup = () => {
       date: new Date(),
       id: uuidv4(),
     });
+
+    setNumericValues({
+      buyPrice: 0,
+      sellPrice: 0,
+    });
   };
 
   return (
     <InputWrapper>
       <StyledInput
         value={values.item}
-        onChange={handleChange}
+        onChange={(event) => handleChange("item", event.target.value)}
         type="text"
         label="Nom de l'objet"
         name="item"
       />
-      {/* <NumericFormat
+      <NumericFormat
         value={values.buyPrice}
-        onChange={handleChange}
+        onValueChange={(valObj) =>
+          handleChange("buyPrice", valObj.formattedValue)
+        }
         label="Prix d'achat"
         name="buyPrice"
         thousandSeparator=","
         customInput={StyledInput}
-      /> */}
-      <StyledInput
-        value={values.buyPrice}
-        onChange={handleChange}
-        type="number"
-        label="Prix d'achat"
-        name="buyPrice"
       />
-      {/* <NumericFormat
+      <NumericFormat
         value={values.sellPrice}
-        onChange={handleChange}
+        onValueChange={(valObj) =>
+          handleChange("sellPrice", valObj.formattedValue)
+        }
         label="Prix de vente"
         name="sellPrice"
         thousandSeparator=","
         customInput={StyledInput}
-      /> */}
-
-      <StyledInput
-        value={values.sellPrice}
-        onChange={handleChange}
-        type="number"
-        label="Prix de vente"
-        name="sellPrice"
       />
-
       <StyledButton text="Ajouter" color="success" onClick={handleSubmit} />
     </InputWrapper>
   );
