@@ -1,8 +1,8 @@
 import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
-import { useStore } from "../../stores/store";
-import { StyledButton } from "../Button";
+import { DeleteButton } from "../DeleteButton";
 import { formatNum } from "../../utils/formatNum";
 import { getBenefitColor } from "../../utils/getBenefitColor";
+import { ButtonToggleSold } from "../ButtonToggleSold";
 
 const renderBuyPriceCell = (params: GridRenderCellParams) => {
   const buyPrice = params.row.buyPrice;
@@ -42,17 +42,7 @@ const renderTaxeCell = (params: GridRenderCellParams) => {
 };
 
 const renderDeleteCell = (params: GridRenderCellParams) => {
-  const deleteItem = useStore((state: any) => state.deleteItem);
-
-  return (
-    <StyledButton
-      text="Delete"
-      color="error"
-      onClick={() => {
-        deleteItem(params.id);
-      }}
-    />
-  );
+  return <DeleteButton id={params.id as string} />;
 };
 
 const renderDateCell = (params: GridRenderCellParams) => {
@@ -62,6 +52,15 @@ const renderDateCell = (params: GridRenderCellParams) => {
     month: "long",
     day: "numeric",
   });
+};
+
+const renderToggleSold = (params: GridRenderCellParams) => {
+  return (
+    <ButtonToggleSold
+      id={params.id as string}
+      sold={params.row.sold as boolean}
+    />
+  );
 };
 
 export const columns: GridColDef[] = [
@@ -118,9 +117,17 @@ export const columns: GridColDef[] = [
     valueGetter: (params) => new Date(params.row.date),
   },
   {
+    field: "isSold",
+    headerName: "Vendu",
+    width: 100,
+    editable: false,
+    sortable: false,
+    renderCell: renderToggleSold,
+  },
+  {
     field: "delete",
     headerName: "Delete",
-    width: 150,
+    width: 100,
     editable: false,
     sortable: false,
     renderCell: renderDeleteCell,

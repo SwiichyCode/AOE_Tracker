@@ -23,6 +23,7 @@ export const FormGroup = () => {
     item: "",
     date: new Date(),
     id: uuidv4(),
+    sold: false,
   });
 
   const [numericValues, setNumericValues] = useState({
@@ -56,6 +57,7 @@ export const FormGroup = () => {
         item: values.item,
         date: values.date,
         id: values.id,
+        sold: false,
       },
     ]);
 
@@ -66,6 +68,7 @@ export const FormGroup = () => {
       benefit: 0,
       date: new Date(),
       id: uuidv4(),
+      sold: false,
     });
 
     setNumericValues({

@@ -1,17 +1,25 @@
+import { useEffect } from "react";
 import { AppLayout } from "./components/layouts/AppLayout";
 import { MainLayout } from "./components/layouts/MainLayout";
 import { Header } from "./components/Header";
 import { FormGroup } from "./components/FormGroup";
 import { DataList } from "./components/DataList";
 import { Box, Typography } from "@mui/material";
+import { useStore } from "./stores/store";
 
 export const App = () => {
+  // const data = useStore((state) => state.data);
+  const initSoldStatus = useStore((state) => state.initSoldStatus);
+
+  useEffect(() => {
+    initSoldStatus();
+  }, []);
+
   return (
     <AppLayout>
       <Header />
       <MainLayout>
         <FormGroup />
-
         <Box
           sx={{
             display: "flex",

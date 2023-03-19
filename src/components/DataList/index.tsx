@@ -1,14 +1,10 @@
 import React from "react";
 import { useStore } from "../../stores/store";
-import {
-  DataGrid,
-  GridSortModel,
-  GridToolbarContainer,
-  GridToolbarExport,
-} from "@mui/x-data-grid";
-import { Box, Typography } from "@mui/material";
-import { DataListFooter } from "../DataListFooter";
 import { columns } from "./params";
+import { DataGrid, GridSortModel } from "@mui/x-data-grid";
+import { Box } from "@mui/material";
+import { DataListFooter } from "../DataListFooter";
+import { DataListToolbar } from "../DataListToolbar";
 
 export const DataList = () => {
   const data = useStore((state: any) => state.data);
@@ -19,17 +15,6 @@ export const DataList = () => {
       sort: "desc",
     },
   ]);
-
-  const CustomToolbar = () => {
-    return (
-      <GridToolbarContainer
-        sx={{ padding: "16px", borderBottom: "1px solid black" }}
-      >
-        <GridToolbarExport />
-        <Typography>Récupère tes données au format CSV</Typography>
-      </GridToolbarContainer>
-    );
-  };
 
   return (
     <Box
@@ -44,20 +29,12 @@ export const DataList = () => {
         componentsProps={{ footer: {} }}
         sortModel={sortModel}
         onSortModelChange={(model) => setSortModel(model)}
-        // pageSizeOptions={[5]}
         checkboxSelection
         disableRowSelectionOnClick
         sx={{ border: "1px solid #000", maxWidth: 1250, margin: "auto" }}
-        // initialState={{
-        //   pagination: {
-        //     paginationModel: {
-        //       pageSize: 5,
-        //     },
-        //   },
-        // }}
         components={{
           Footer: DataListFooter,
-          Toolbar: CustomToolbar,
+          Toolbar: DataListToolbar,
         }}
       />
     </Box>

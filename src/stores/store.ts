@@ -6,6 +6,8 @@ interface DataSate {
   data: any[];
   setData: (data: any) => void;
   deleteItem: (id: string) => void;
+  toggleSold: (id: string) => void;
+  initSoldStatus: () => void;
 }
 
 const defaultData = [
@@ -16,6 +18,7 @@ const defaultData = [
     benefit: 1000,
     item: "Exemple d'objet",
     date: new Date(),
+    sold: false,
   },
 ];
 
@@ -28,6 +31,23 @@ export const useStore = create<DataSate>()(
 
       deleteItem: (id: string) => {
         const newData = get().data.filter((item: any) => item.id !== id);
+        set({ data: newData });
+      },
+
+      toggleSold: (id: string) => {
+        const newData = get().data.map((item: any) => {
+          if (item.id === id) {
+            return { ...item, sold: !item.sold };
+          }
+          return item;
+        });
+        set({ data: newData });
+      },
+
+      initSoldStatus: () => {
+        const newData = get().data.map((item: any) => {
+          return { ...item, sold: false };
+        });
         set({ data: newData });
       },
 
