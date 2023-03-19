@@ -18,6 +18,9 @@ export const App = () => {
           <Typography sx={{ color: "red" }}>
             Afin de ne pas perdre vos données, veillez à ne pas réinitialiser
             votre navigateur ni supprimer le localStorage. (Temporaire)
+            <a href="https://discord.gg/NfXm7vavCK">
+              https://discord.gg/NfXm7vavCK
+            </a>
           </Typography>
           Merci de votre compréhension et n'hésitez pas à nous faire part de vos
           suggestions et commentaires.
