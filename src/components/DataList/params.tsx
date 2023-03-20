@@ -88,6 +88,7 @@ export const columns: GridColDef[] = [
     width: 150,
     editable: true,
     renderCell: renderBuyPriceCell,
+    renderEditCell: renderEditComponent,
   },
   {
     field: "sellPrice",
