@@ -3,6 +3,7 @@ import { DeleteButton } from "../DeleteButton";
 import { formatNum } from "../../utils/formatNum";
 import { getBenefitColor } from "../../utils/getBenefitColor";
 import { ButtonToggleSold } from "../ButtonToggleSold";
+import { InputEdit } from "../InputEdit";
 
 const renderBuyPriceCell = (params: GridRenderCellParams) => {
   const buyPrice = params.row.buyPrice;
@@ -63,12 +64,23 @@ const renderToggleSold = (params: GridRenderCellParams) => {
   );
 };
 
+const renderEditComponent = (props: GridRenderCellParams) => {
+  return (
+    <InputEdit
+      id={props.id as number}
+      field={props.field}
+      value={props.value}
+    />
+  );
+};
+
 export const columns: GridColDef[] = [
   {
     field: "item",
     headerName: "Item name",
     width: 150,
     editable: true,
+    renderEditCell: renderEditComponent,
   },
   {
     field: "buyPrice",
@@ -83,6 +95,7 @@ export const columns: GridColDef[] = [
     width: 150,
     editable: true,
     renderCell: renderSellPriceCell,
+    renderEditCell: renderEditComponent,
   },
   {
     field: "benefit",
