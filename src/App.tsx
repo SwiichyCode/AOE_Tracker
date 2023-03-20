@@ -28,7 +28,7 @@ export const App = () => {
               </Typography>
             </Alert>
             <Alert severity="info">
-              Fix des modifications des cellules ! Cela fonctionne correctement
+              Fix des modifications de cellule ! Cela fonctionne correctement
               maintenant.
             </Alert>
           </Box>
