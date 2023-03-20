@@ -27,10 +27,7 @@ export const App = () => {
                 Rejoignez le discord pour proposer des idées d'amélioration.
               </Typography>
             </Alert>
-            <Alert severity="info">
-              Fix des modifications de cellule ! Cela fonctionne correctement
-              maintenant.
-            </Alert>
+            <Alert severity="info">Refonte graphique soon</Alert>
           </Box>
           <DataList />
         </Box>
