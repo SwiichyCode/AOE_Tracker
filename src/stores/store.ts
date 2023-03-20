@@ -43,11 +43,10 @@ export const useStore = create<DataSate>()(
         set({ data: newData });
       },
 
-      editSellPrice: (id: string, sellPrice: number) => {
-        console.log("test", id, sellPrice);
+      updateProperty: (id: string, field: string, value: any) => {
         const newData = get().data.map((item: any) => {
           if (item.id === id) {
-            return { ...item, sellPrice };
+            return { ...item, [field]: value };
           }
           return item;
         });

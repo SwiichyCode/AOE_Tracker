@@ -68,13 +68,13 @@ export const columns: GridColDef[] = [
     field: "item",
     headerName: "Item name",
     width: 150,
-    editable: false,
+    editable: true,
   },
   {
     field: "buyPrice",
     headerName: "Prix d'achat",
     width: 150,
-    editable: false,
+    editable: true,
     renderCell: renderBuyPriceCell,
   },
   {

@@ -28,10 +28,11 @@ export const App = () => {
               </Typography>
             </Alert>
             <Alert severity="info">
-              Vous pouvez modifier la cellule du prix de vente, mais il y a
-              encore quelques problèmes à résoudre. Pour enregistrer la
-              modification, éditez la cellule, sortez de la cellule et cliquez à
-              nouveau pour sauvegarder les modifications effectuées.
+              Vous pouvez modifier la cellule (Name, Prix d'achat, Prix de
+              vente), mais il y a encore quelques problèmes à résoudre. Pour
+              enregistrer la modification, éditez la cellule, sortez de la
+              cellule et cliquez à nouveau pour sauvegarder les modifications
+              effectuées.
             </Alert>
           </Box>
           <DataList />
